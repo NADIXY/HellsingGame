@@ -1,7 +1,10 @@
 package HellsingGame
 
+import HellsingGame.Character.Gegner.Gegner
+import HellsingGame.Character.Helden.Helden
+
 class Kampfsystem {
-    fun kampfStart(hellsing: List<Hellsing>,enemy: Enemy) {}
-    fun gameOver(hellsing: List<Hellsing>, enemy: Enemy) {}
+    fun kampfStart(helden: List<Helden>, gegner: Gegner) {}
+    fun gameOver(helden: List<Helden>, gegner: Gegner) {}
 
 }

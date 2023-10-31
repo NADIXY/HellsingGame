@@ -1,4 +1,4 @@
-package HellsingGame.Aktionen
+package HellsingGame
 
 import HellsingGame.Character.Character
 
