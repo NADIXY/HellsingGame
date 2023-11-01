@@ -1,7 +1,14 @@
 package HellsingGame.Character.Helden
 
-import HellsingGame.Character.Character
+import HellsingGame.Aktionen.Heilung
 
-class SerasVictoria(name: String, hp: Int, waffe: String, elementartyp: String): Helden(name,hp,waffe,elementartyp) {
+class SerasVictoria(name: String, hp: Int, waffe: String, elementartyp: String, schaden: IntRange): Helden(name,hp,waffe,elementartyp,schaden) {
 
+    override fun attacken() {
+
+    }
+
+    override fun zaubertrank(heilung: Heilung, beschreibung: String, trinken: Helden) {
+
+    }
 }

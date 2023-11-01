@@ -1,9 +1,16 @@
 package HellsingGame.Character.Helden
 
-import HellsingGame.Character.Character
+import HellsingGame.Aktionen.Heilung
 
-open class Helden(name: String, hp: Int, var waffe: String, val elementartyp: String): Character(name,hp) {
+open class Helden(val name: String, val hp: Int, val waffe: String, val elementartyp: String, val schaden: IntRange) {
 
-    fun aktionAusfuehren(aktionIndex: Int, ziel: Character) {}
+    open fun attacken() {
+
+    }
+    fun aktionAusfuehren(aktionIndex: Int, ziel: Helden) {}
+
+    open fun zaubertrank(heilung: Heilung, beschreibung: String, trinken: Helden) {
+
+    }
 
 }

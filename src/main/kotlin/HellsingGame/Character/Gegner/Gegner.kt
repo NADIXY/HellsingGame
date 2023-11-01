@@ -1,15 +1,26 @@
 package HellsingGame.Character.Gegner
 
 import HellsingGame.Aktionen.Aktion
-import HellsingGame.Character.Character
+import HellsingGame.Aktionen.Heilung
+import HellsingGame.Character.Helden.Helden
 
-open class Gegner(name: String, hp: Int, var waffe: String, val elementartyp: String): Character(name,hp) {
+open class Gegner(val name: String, val hp: Int, val waffe: String, val elementartyp: String, val schaden: IntRange) {
 
     var aktionen = mutableListOf<Aktion>()
 
     fun auswahlAktion() {}
 
-    fun leistung(aktionIndex: Int, ziel: Character) {}
+    open fun leistung(aktionIndex: Int, ziel: Gegner) {}
+
+    open fun zaubertrank(heilung: Heilung, beschreibung: String, trinken: Gegner) {
+
+    }
+
+    open fun attacken() {
+
+    }
+
+
 
 
 
