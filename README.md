@@ -4,6 +4,6 @@
 ![img.png](img.png)
 
 
-#### KLASSENDIAGRAM
+#### KLASSENDIAGRAMM
 
 
