@@ -3,6 +3,7 @@ package HellsingGame
 import kotlin.random.Random
 
 open class Helden(val name: String, var hp: Int, val waffe: String, val element: String, var schaden: IntRange) {
+
     open fun aktionAusfuehren(gegner: Gegner) {
         println("""
             
@@ -26,8 +27,6 @@ open class Helden(val name: String, var hp: Int, val waffe: String, val element:
     open fun attacken() {
         println("Held führt eine Attacke aus.")
     }
-
-
 
 
     //fun aktionAusfuehren(aktionIndex: Int, ziel: gegner) {}

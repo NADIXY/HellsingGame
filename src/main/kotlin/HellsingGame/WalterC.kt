@@ -1,7 +1,5 @@
 package HellsingGame
 
-
-
 class WalterC(name: String, hp: Int, waffe: String, elementartyp: String, schaden: IntRange ): Helden(name,hp,waffe,elementartyp,schaden) {
 
     override fun heilung() {

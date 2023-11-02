@@ -3,6 +3,7 @@ package HellsingGame
 import kotlin.random.Random
 
 open class Gegner(val name: String, var hp: Int, val waffe: String, val element: String, val schaden: IntRange) {
+
     //fun auswahlAktion() {
        // val aktionIndex = Random.nextInt(aktionen.size)
         //aktion = ""
@@ -15,7 +16,6 @@ open class Gegner(val name: String, var hp: Int, val waffe: String, val element:
             else -> println("Ungültige Auswahl.")
         }
     }
-
 
     open fun attacken() {
         println("Gegner $name führt eine Attacke aus.")

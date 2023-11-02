@@ -4,6 +4,7 @@ import kotlin.random.Random
 
 class AlexandersHelfer(name: String, hp: Int, waffe: String, element: String, schaden: IntRange): Gegner(name,hp,waffe,element,schaden){
 
+
     override fun leistung(aktionIndex: Int, helden: Helden) {
         when (aktionIndex) {
             1 -> angriff(helden)

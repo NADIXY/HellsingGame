@@ -2,6 +2,7 @@ package HellsingGame
 
 class Alucard(name: String, hp: Int, waffe: String, element: String, schaden: IntRange): Helden(name,hp,waffe,element,schaden) {
 
+
     //override fun heilung() {
         //super.heilung()
     //}
