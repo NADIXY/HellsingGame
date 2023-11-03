@@ -1,5 +1,10 @@
 package HellsingGame
 
+import java.io.File
+import javax.sound.sampled.AudioInputStream
+import javax.sound.sampled.AudioSystem
+import javax.sound.sampled.Clip
+import javax.sound.sampled.FloatControl
 
 var helden: List<Helden> =
     listOf(
@@ -24,13 +29,26 @@ fun main() {
 
     println("\t\t\t\t\t\t\t\t\t\t\t\t\t🔥☠️🔥 ENJOY YOUR TIME WITH US... 🔥☠️🔥")
 
+    val teams = Teams(helden)
+    val endgegner = BossAlexanderA("Alexander Anderson",200,"Heiliges Schwert", "Licht",20..30)
 
-    val heldenTeam = HeldenTeam(helden)
-    val endgegner = AlexanderAnderson("Alexander Anderson",200,"Heiliges Schwert", "Licht",20..30)
-
-    heldenTeam.kampfStart(endgegner)
+    teams.kampfStart(endgegner)
 
 
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

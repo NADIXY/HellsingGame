@@ -1,31 +1,32 @@
 package HellsingGame
-class HeldenTeam(val helden: List<Helden>) {
-    
+
+class Teams(val helden: List<Helden>) { //, val gegner: List<Gegner>
+
     val beutel: Beutel = Beutel()
 
-    fun kampfStart(gegner:Gegner) {
+    fun kampfStart(gegner: Gegner) {
 
         var round = 1
         while (true) {
             println("Round $round:")
             println("")
-            for(held in helden) {
+            for (held in helden) {
                 if (held.hp > 0) {
                     println("${held.name} ist am Start")
                     held.aktionAusfuehren(gegner)
                     println("")
                 }
             }
-           // gegner.auswahlAktion()
-           // println("")
-           // if (teamTot()) {
-                //gameOver(gegner)
-                //break
-            //}else if (gegner.hp <= 0) {
-                //println("Der Endgegner wurde K.O. beseitigt!")
-                //break
+            // gegner.auswahlAktion()
+            //println("")
+            if (teamTot()) {
+                gameOver(gegner)
+                break
+            } else if (gegner.hp <= 0) {
+                println("Der Endgegner wurde K.O. beseitigt!")
+                break
             }
-           // round++
+            round++
         }
     }
 

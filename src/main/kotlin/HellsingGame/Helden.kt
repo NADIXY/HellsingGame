@@ -19,7 +19,7 @@ open class Helden(val name: String, var hp: Int, val waffe: String, val element:
             1 -> angriff(gegner)
             2 -> heilung()
             3 -> beutelAktion(Beutel())
-            else -> println("Eingabe nicht korrekte.")
+            else -> println("Eingabe nicht korrekt.")
         }
     }
 
@@ -27,11 +27,12 @@ open class Helden(val name: String, var hp: Int, val waffe: String, val element:
         println("Held führt eine Attacke aus.")
     }
 
-
     open fun angriff(gegner: Gegner) {
         val schaden = Random.nextInt(schaden.first, schaden.last + 1)
         gegner.hp -= schaden
-        println("$name greift ${gegner.name} mit $waffe an und fügt $schaden Schaden zu.")
+        println("$name greift ${gegner.name} mit $waffe an," +
+                " fügt ${gegner.schaden} Schaden zu und reduziert die" +
+                " HP der ${gegner.name} um ${gegner.hp}.")
     }
 
     open fun heilung() {}

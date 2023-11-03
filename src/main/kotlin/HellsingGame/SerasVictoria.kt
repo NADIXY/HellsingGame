@@ -2,7 +2,6 @@ package HellsingGame
 
 class SerasVictoria(name: String, hp: Int, waffe: String, element: String, schaden: IntRange): Helden(name,hp,waffe,element,schaden) {
 
-
     override fun heilung() {
         hp += 40
         println("$name hat sich um 40 HP geheilt.")
@@ -21,6 +20,5 @@ class SerasVictoria(name: String, hp: Int, waffe: String, element: String, schad
     override fun attacken() {
         println("Held ${this.name} führt eine Attacke aus.")
     }
-
 
 }

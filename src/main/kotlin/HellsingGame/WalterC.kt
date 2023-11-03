@@ -1,6 +1,6 @@
 package HellsingGame
 
-class WalterC(name: String, hp: Int, waffe: String, elementartyp: String, schaden: IntRange ): Helden(name,hp,waffe,elementartyp,schaden) {
+class WalterC(name: String, hp: Int, waffe: String, element: String, schaden: IntRange ): Helden(name,hp,waffe,element,schaden) {
 
     override fun heilung() {
         hp += 20
@@ -20,6 +20,5 @@ class WalterC(name: String, hp: Int, waffe: String, elementartyp: String, schade
     override fun attacken() {
         println("Held ${this.name} führt eine Attacke aus.")
     }
-
 
 }

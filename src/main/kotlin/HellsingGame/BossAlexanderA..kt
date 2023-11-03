@@ -3,7 +3,7 @@ package HellsingGame
 import kotlin.random.Random
 
 
-class AlexanderAnderson(name: String, hp: Int, waffe: String, elementartyp: String, schaden: IntRange): Gegner(name,hp,waffe,elementartyp,schaden) {
+class BossAlexanderA(name: String, hp: Int, waffe: String, elementartyp: String, schaden: IntRange): Gegner(name,hp,waffe,elementartyp,schaden) {
 
     override fun leistung(aktionIndex: Int, helden: Helden) {
         when (aktionIndex) {
