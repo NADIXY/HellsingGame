@@ -1,7 +1,6 @@
 package HellsingGame
 
 import kotlin.random.Random
-
 open class Helden(val name: String, var hp: Int, val waffe: String, val element: String, var schaden: IntRange) {
 
     open fun aktionAusfuehren(gegner: Gegner) {
@@ -29,8 +28,6 @@ open class Helden(val name: String, var hp: Int, val waffe: String, val element:
     }
 
 
-    //fun aktionAusfuehren(aktionIndex: Int, ziel: gegner) {}
-    //open fun zaubertrank(heilung: Heilung, beschreibung: String, trinken: Helden) {}
     open fun angriff(gegner: Gegner) {
         val schaden = Random.nextInt(schaden.first, schaden.last + 1)
         gegner.hp -= schaden

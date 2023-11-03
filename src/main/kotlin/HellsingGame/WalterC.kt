@@ -21,7 +21,5 @@ class WalterC(name: String, hp: Int, waffe: String, elementartyp: String, schade
         println("Held ${this.name} führt eine Attacke aus.")
     }
 
-    //override fun zaubertrank(heilung: Heilung, beschreibung: String, trinken: Helden) {
 
-    //}
 }

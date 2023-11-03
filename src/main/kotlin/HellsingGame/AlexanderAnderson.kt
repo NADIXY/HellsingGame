@@ -8,7 +8,7 @@ class AlexanderAnderson(name: String, hp: Int, waffe: String, elementartyp: Stri
     override fun leistung(aktionIndex: Int, helden: Helden) {
         when (aktionIndex) {
             1 -> angriff(helden)
-            //2 -> auswahlAktion()
+
             else -> println("Ungültige Auswahl.")
         }
     }

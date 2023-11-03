@@ -1,5 +1,6 @@
 package HellsingGame
 
+
 var helden: List<Helden> =
     listOf(
         Alucard("Alucard",100,"Schwert","Feuer",10..20),

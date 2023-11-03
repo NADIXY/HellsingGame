@@ -1,7 +1,5 @@
 package HellsingGame
 
-
-
 class Integra(name: String, hp: Int, waffe: String, element: String, schaden: IntRange): Helden(name,hp,waffe,element,schaden) {
 
     override fun heilung() {
@@ -24,7 +22,5 @@ class Integra(name: String, hp: Int, waffe: String, element: String, schaden: In
     }
 
 
-    //override fun zaubertrank(heilung: Heilung, beschreibung: String, trinken: Helden) {
 
-    //}
 }

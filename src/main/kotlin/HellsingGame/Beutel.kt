@@ -1,10 +1,11 @@
 package HellsingGame
 
+
 class Beutel {
 
     var items : MutableList<String> = mutableListOf()
 
-    //fun intemAktion(itemIndex: Int, ziel: Helden) {}
+
 
     fun heiltrank(held: Helden) {
         val heilung = held.hp / 2

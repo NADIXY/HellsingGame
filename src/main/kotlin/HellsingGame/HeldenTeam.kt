@@ -1,5 +1,4 @@
 package HellsingGame
-
 class HeldenTeam(val helden: List<Helden>) {
     
     val beutel: Beutel = Beutel()
@@ -17,16 +16,16 @@ class HeldenTeam(val helden: List<Helden>) {
                     println("")
                 }
             }
-            gegner.auswahlAktion()
-            println("")
-            if (teamTot()) {
-                gameOver(gegner)
-                break
-            }else if (gegner.hp <= 0) {
-                println("Der Endgegner wurde besiegt!")
-                break
+           // gegner.auswahlAktion()
+           // println("")
+           // if (teamTot()) {
+                //gameOver(gegner)
+                //break
+            //}else if (gegner.hp <= 0) {
+                //println("Der Endgegner wurde K.O. beseitigt!")
+                //break
             }
-            round++
+           // round++
         }
     }
 

@@ -1,7 +1,5 @@
 package HellsingGame
 
-
-
 class SerasVictoria(name: String, hp: Int, waffe: String, element: String, schaden: IntRange): Helden(name,hp,waffe,element,schaden) {
 
 
@@ -24,6 +22,5 @@ class SerasVictoria(name: String, hp: Int, waffe: String, element: String, schad
         println("Held ${this.name} führt eine Attacke aus.")
     }
 
-   // override fun zaubertrank(heilung: Heilung, beschreibung: String, trinken: Helden) {
-    //}
+
 }
