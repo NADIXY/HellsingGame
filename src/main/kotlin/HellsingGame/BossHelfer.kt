@@ -37,7 +37,7 @@ class BossHelfer(name: String, hp: Int, waffe: String, element: String, schaden:
     }
 
     fun yyyy(helden: Helden) {
-        println("Gegner  schadet Held ${helden.name}.")
+        println("Gegner schadet Held ${helden.name}.")
     }
 
 }

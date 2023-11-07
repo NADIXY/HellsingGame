@@ -43,7 +43,7 @@ override fun waffeAttacke(gegner: Gegner) {
     gegner.hp -= schaden
     println("$name greift ${gegner.name} mit der $waffe an," +
             " fügt Schaden zu und reduziert die" +
-            " HP der Gegner. ${gegner.name} hat jetzt nur noch ${gegner.hp}HP übrig!")
+            " HP der Gegner.\n ${gegner.name} hat jetzt nur noch ${gegner.hp}HP übrig!")
 
 }
 fun attacke3() {}

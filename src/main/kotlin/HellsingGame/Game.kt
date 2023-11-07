@@ -10,7 +10,7 @@ class Game {
             println("Team_Helden 'HELLSING' startet:")
             for (held in HELDEN1) {
                 if (held.hp > 0) {
-                    println("${held.name} ist am Start mit ${held.hp}HP")
+                    println("Held Namen's ${held.name} ist am Start mit ${held.hp}HP")
                     held.aktionAusfuehren()
                     println()
                 }
@@ -28,11 +28,12 @@ class Game {
         }
     }
     fun gameOver(gegner: List<Gegner>) {
-        println("Das Team 'HELLSING' ist K.O geschlagen worden! Der Endgegner ${gegner.random().name} hat gewonnen!")
+        println("Das Team 'HELLSING' ist K.O geschlagen worden!\n" +
+                " Der Endgegner ${GEGNER1.get(0)} und seinem Helfer ${GEGNER1.get(1)} haben gewonnen!")
     }
     private fun teamTot(): Boolean {
         for (held in HELDEN1) {
-            if (held.hp >= 0) {
+            if (held.hp >= 60) {
                 return false
             }
         }

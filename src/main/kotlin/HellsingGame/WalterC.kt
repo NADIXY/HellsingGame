@@ -19,7 +19,7 @@ class WalterC(name: String, hp: Int, waffe: String, element: String, schaden: In
             "A" -> xxx
             "B" -> waffeAttacke
             "C" -> attacke3
-            "D" -> attacke3
+            "D" -> Heil Zauber
             
         """.trimIndent()
         )
@@ -40,7 +40,7 @@ class WalterC(name: String, hp: Int, waffe: String, element: String, schaden: In
         gegner.hp -= schaden
         println("$name greift ${gegner.name} mit der $waffe an," +
                     " fügt Schaden zu und reduziert die" +
-                    " HP der Gegner. ${gegner.name} hat jetzt nur noch ${gegner.hp}HP übrig!")
+                    " HP der Gegner.\n ${gegner.name} hat jetzt nur noch ${gegner.hp}HP übrig!")
     }
     fun attacke3() {}
 

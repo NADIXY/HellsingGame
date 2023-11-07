@@ -2,7 +2,7 @@ package HellsingGame
 
 val HELDEN1: List<Helden> =
     listOf(
-        Alucard("Alucard",100,"Schwert","Feuer",10..20),
+        Alucard("Alucard",100,"Calibra Waffe","Feuer",10..20),
         Integra("Integra",110,"Pistole","Eis",15..25),
         SerasVictoria("Seras Victoria",80,"Gewehr","Blitz",8..15),
         WalterC("Walter C,",90,"Dolch","Gift",12..18)

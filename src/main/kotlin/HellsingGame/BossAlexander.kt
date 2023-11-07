@@ -54,9 +54,11 @@ class BossAlexanderA(name: String, hp: Int, waffe: String, elementartyp: String,
             for (i in 1..10) {
                 if (held.hp > hpx) {
                     held.hp -= (held.hp * 0.1).toInt()
-                    println("Verflucht")
+                    println("Verflucht...\n" +
+                            "Held ${held.name} hat jetzt nur noch ${held.hp}HP übrig!")
                 } else {
-                    println("Nicht Verflucht")
+                    println("Flucht zu schwach!\n" +
+                            "Held ${held.name} hat jetzt nur noch ${held.hp}HP übrig!")
                     break
                 }
             }
