@@ -1,6 +1,6 @@
 package HellsingGame
 
-var helden: List<Helden> =
+var helden1: List<Helden> =
     listOf(
         Alucard("Alucard",100,"Schwert","Feuer",10..20),
         Integra("Integra",110,"Pistole","Eis",15..25),
@@ -10,8 +10,8 @@ var helden: List<Helden> =
 
 var gegner: List<Gegner> =
     listOf(
-        BossAlexanderA("Boss Alexander Anderson",200,"Heiliges Schwert", "Licht",80..200),
-        BossHelfer("Boss Helfer",100,"Pistole","Licht",70..150)
+        BossAlexanderA("Boss Alexander Anderson",400,"Heiliges Schwert", "Licht",80..200),
+        BossHelfer("Boss Helfer",350,"Pistole","Licht",70..150)
     )
 
 fun main() {

@@ -9,16 +9,16 @@ class BossHelfer(name: String, hp: Int, waffe: String, element: String, schaden:
     override fun aktionAusfuehren(helden: Helden) {
         println("Jetzt ist ${this.name} am Start mit ${this.hp}HP!")
 
-        /* val
-        when (){
+         val aktion = (1..4).random()
+        when (aktion){
             1 -> attacke1(helden)
             2 -> waffeAngriff(helden)
             3 -> yyy(helden)
             4 -> yyyy(helden)
             else -> println("Ungültige Auswahl.")
         }
-    } */
     }
+
 
    fun attacke1(held: Helden) {}
 
@@ -27,7 +27,7 @@ class BossHelfer(name: String, hp: Int, waffe: String, element: String, schaden:
         println()
         val schaden = Random.nextInt(15..35)
         helden.hp -= schaden
-        println("$name greift ${helden.name} mit der $waffe an," +
+        println("${this.name} greift ${helden.name} mit der ${this.waffe} an," +
                     " fügt Schaden zu und reduziert die" +
                     " HP.\njetzt hat Held ${helden.name} nur noch ${helden.hp}HP übrig!")
     }
@@ -37,7 +37,7 @@ class BossHelfer(name: String, hp: Int, waffe: String, element: String, schaden:
     }
 
     fun yyyy(helden: Helden) {
-        println("Gegner $name schadet Held ${helden.name}.")
+        println("Gegner  schadet Held ${helden.name}.")
     }
 
 }

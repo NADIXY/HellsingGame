@@ -6,16 +6,16 @@ class Game {
 
         var level = 1
         while (true) {
-            println("Round $level:")
+            println("Level $level:")
             println("Team_Helden 'HELLSING' startet:")
-            for (held in helden) {
+            for (held in helden1) {
                 if (held.hp > 0) {
                     println("${held.name} ist am Start mit ${held.hp}HP")
                     held.aktionAusfuehren()
                     println()
                 }
             }
-             gegner.random().aktionAusfuehren(helden.random())
+             gegner.random().aktionAusfuehren(helden1.random())
             println("Jetzt ist HELLSING am Start!")
             if (teamTot()) {
                 gameOver(gegner)
@@ -31,7 +31,7 @@ class Game {
         println("Das Team 'HELLSING' ist K.O geschlagen worden! Der Endgegner ${gegner.random().name} hat gewonnen!")
     }
     private fun teamTot(): Boolean {
-        for (held in helden) {
+        for (held in helden1) {
             if (held.hp >= 0) {
                 return false
             }

@@ -1,15 +1,12 @@
 package HellsingGame
 
-import kotlin.random.Random
-import kotlin.random.nextInt
-
 open class Gegner(val name: String, var hp: Int, val waffe: String, val element: String, val schaden: IntRange) {
 
     open fun attacke1() {
         println("Gegner $name führt eine Attacke aus.")
     }
 
-    open fun flaechenschaden(helden: Helden ) {
+    open fun flaechenschaden(helden: List<Helden>) {
         println("Gegner $name fügt dem Helden_Team 'HELLSING' Flächenschaden zu.")
     }
 
@@ -22,13 +19,16 @@ open class Gegner(val name: String, var hp: Int, val waffe: String, val element:
     }
 
     open fun aktionAusfuehren(helden: Helden) {
-        /* val auswahl = readln().toIntOrNull()
-        when (auswahl) {
-            1 -> waffeAngriff(helden)
-            2 -> flaechenschaden(helden)
+        val aktion = (1..6).random()
+        when (aktion) {
+            1 -> attacke1()
+            2 -> flaechenschaden(helden1)
             3 -> fluch(helden)
-            else -> println("Ungültige Auswahl.")
-        } */
+            4 -> waffeAngriff(helden)
+            else -> println("Eingabe Falsch!")
+        }
     }
 
-}
+    }
+
+
