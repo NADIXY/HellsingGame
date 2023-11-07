@@ -8,8 +8,7 @@ class SerasVictoria(name: String, hp: Int, waffe: String, element: String, schad
 
     override fun heilZauber() {
         hp += 40
-        println(
-            "${this.name} hat sich um 40 HP mit dem Schutz Zauber geschützt." +
+        println("${this.name} hat sich um 40 HP mit dem Schutz Zauber geschützt." +
                     "\n${this.name}'s HP beträgt jetzt ${this.hp}HP."
         )
     }
@@ -19,7 +18,7 @@ class SerasVictoria(name: String, hp: Int, waffe: String, element: String, schad
         println("Held ${this.name} führt eine Attacke aus.")
         println(
             """
-            "A" -> queqsilberWolke
+            "A" -> xxxx
             "B" -> waffeAttacke
             "C" -> attacke3
             
@@ -27,33 +26,23 @@ class SerasVictoria(name: String, hp: Int, waffe: String, element: String, schad
         )
         val eingabe = readln().uppercase()
         when (eingabe) {
-            "A" -> queqsilberWolke(gegner)
+            "A" -> xxxx(gegner)
             "B" -> waffeAttacke(gegner)
             "C" -> attacke3()
-            else -> println("Eingabe nicht korrekt.")
+            else -> println("Eingabe Falsch!")
         }
     }
 
-
-
-    override fun queqsilberWolke(gegner: Gegner) {
-        val attacke = "Queqsilber Wolke"
-        val schaden = 25
-        gegner.hp -= schaden
-        println(
-            "$name greift ${gegner.name} mit dem Attacke: $attacke an," +
-                    " fügt ${gegner.schaden} Schaden zu und reduziert die HP um ${gegner.hp}HP"
-        )
-    }
+    fun xxxx(gegner: Gegner) {}
 
 
 override fun waffeAttacke(gegner: Gegner) {
-    val schaden = Random.nextInt(5..20)
+    val schaden = Random.nextInt(25..35)
     gegner.hp -= schaden
-    println(
-        "$name greift ${gegner.name} mit der $waffe an," +
-                " fügt Schaden zu und reduziert die" +
-                " HP.\njetzt hat gegner ${gegner.name} nur noch ${gegner.hp}HP übrig!")
+    println("$name greift ${gegner.name} mit der $waffe an," +
+            " fügt Schaden zu und reduziert die" +
+            " HP der Gegner. ${gegner.name} hat jetzt nur noch ${gegner.hp}HP übrig!")
+
 }
 fun attacke3() {}
 

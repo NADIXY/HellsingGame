@@ -6,9 +6,6 @@ import kotlin.random.nextInt
 class Alucard(name: String, hp: Int, waffe: String, element: String, schaden: IntRange) :
     Helden(name, hp, waffe, element, schaden) {
 
-    //override fun heilung() {
-    //super.heilung()
-    //}
 
     override fun heilZauber() {
         hp += 50
@@ -23,7 +20,7 @@ class Alucard(name: String, hp: Int, waffe: String, element: String, schaden: In
         println("Held ${this.name} führt eine Attacke aus.")
         println(
             """
-            "A" -> queqsilberWolke
+            "A" -> xxxxxx
             "B" -> waffeAttacke
             "C" -> attacke3
             
@@ -31,27 +28,19 @@ class Alucard(name: String, hp: Int, waffe: String, element: String, schaden: In
         )
         val eingabe = readln().uppercase()
         when (eingabe) {
-            "A" -> queqsilberWolke(gegner)
+            "A" -> xxxxxx(gegner)
             "B" -> waffeAttacke(gegner)
             "C" -> attacke3()
-            else -> println("Eingabe nicht korrekt.")
+            else -> println("Eingabe Falsch!")
         }
     }
 
 
-    override fun queqsilberWolke(gegner: Gegner) {
-        val attacke = "Queqsilber Wolke"
-        val schaden = 25
-        gegner.hp -= schaden
-        println(
-            "$name greift ${gegner.name} mit dem Attacke: $attacke an," +
-                    " fügt ${gegner.schaden} Schaden zu und reduziert die HP um ${gegner.hp}HP"
-        )
+    fun xxxxxx(gegner: Gegner) {
     }
 
-
     override fun waffeAttacke(gegner: Gegner) {
-        val schaden = Random.nextInt(5..20)
+        val schaden = Random.nextInt(45..65)
         gegner.hp -= schaden
         println(
             "$name greift ${gegner.name} mit der $waffe an," +
