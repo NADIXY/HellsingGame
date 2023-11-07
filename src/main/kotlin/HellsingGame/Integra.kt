@@ -20,6 +20,7 @@ class Integra(name: String, hp: Int, waffe: String, element: String, schaden: In
             "A" -> xxxxx
             "B" -> waffeAttacke
             "C" -> attacke3
+            "D" -> Heil Zauber
             
         """.trimIndent()
         )
@@ -29,6 +30,7 @@ class Integra(name: String, hp: Int, waffe: String, element: String, schaden: In
             "A" -> xxxxx(gegner)
             "B" -> waffeAttacke(gegner)
             "C" -> attacke3()
+            "D" -> heilZauber()
             else -> println("Eingabe Falsch!")
         }
     }
@@ -44,5 +46,15 @@ override fun waffeAttacke(gegner: Gegner) {
 }
 
 fun attacke3() {}
+
+    override fun beutelAktion(beutel: Beutel) {
+        println("Wählen Sie:\n* -> heiltrank\n# -> vitamine")
+        val auswahl = readln()
+        when (auswahl) {
+            "*" -> beutel.heiltrank(this)
+            "#" -> beutel.vitamine(this)
+            else -> println("Eingabe Falsch!")
+        }
+    }
 
 }

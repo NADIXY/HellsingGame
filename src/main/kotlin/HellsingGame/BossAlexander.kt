@@ -12,7 +12,7 @@ class BossAlexanderA(name: String, hp: Int, waffe: String, elementartyp: String,
         val aktion = (1..6).random()
         when (aktion) {
             1 -> waffeAngriff(helden)
-            2 -> flaechenschaden(helden1)
+            2 -> flaechenschaden(HELDEN1)
             3 -> fluch(helden)
             4 -> helferBeschworen()
             5 -> attacke5()
@@ -40,8 +40,8 @@ class BossAlexanderA(name: String, hp: Int, waffe: String, elementartyp: String,
                 val schaden = Random.nextInt(10..30)
                 held.hp -= schaden
                 println(
-                    "$name hat die Helden ${held.name} mit Feuer verbrannt," +
-                            " \n die Helden ${held.name} haben jetzt nur noch ${held.hp}HP übrig!"
+                    "$name hat  Held ${held.name} mit Feuer verbrannt," +
+                            " \nHeld ${held.name} hat jetzt nur noch ${held.hp}HP übrig!"
                 )
             }
 

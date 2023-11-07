@@ -5,8 +5,6 @@ import kotlin.random.nextInt
 
 open class Helden(val name: String, var hp: Int, val waffe: String, val element: String, var schaden: IntRange) {
 
-
-
     open fun aktionAusfuehren() {
         println(
             """
@@ -18,20 +16,15 @@ open class Helden(val name: String, var hp: Int, val waffe: String, val element:
         )
         val auswahl = readln().toIntOrNull()
         when (auswahl) {
-            1 -> aktionen(gegner.random())
+            1 -> aktionen(GEGNER1.random())
             2 -> beutelAktion(beutel = Beutel())
             else -> println("Eingabe Falsch!")
         }
     }
 
-    fun beutelAktion(beutel: Beutel) {
-        println("Wählen Sie:\n* -> heiltrank\n# -> vitamine")
-        val auswahl = readln()
-        when (auswahl) {
-            "*" -> beutel.heiltrank(helden1.random())
-            "#" -> beutel.vitamine(helden1.random())
-            else -> println("Eingabe Falsch!")
-        }
+    open fun beutelAktion(beutel: Beutel) {
+        println("...")
+
     }
 
     open fun heilZauber() {

@@ -19,6 +19,7 @@ class WalterC(name: String, hp: Int, waffe: String, element: String, schaden: In
             "A" -> xxx
             "B" -> waffeAttacke
             "C" -> attacke3
+            "D" -> attacke3
             
         """.trimIndent()
         )
@@ -27,6 +28,7 @@ class WalterC(name: String, hp: Int, waffe: String, element: String, schaden: In
             "A" -> xxx(gegner)
             "B" -> waffeAttacke(gegner)
             "C" -> attacke3()
+            "D" -> heilZauber()
             else -> println("Eingabe Falsch!")
         }
     }
@@ -41,5 +43,15 @@ class WalterC(name: String, hp: Int, waffe: String, element: String, schaden: In
                     " HP der Gegner. ${gegner.name} hat jetzt nur noch ${gegner.hp}HP übrig!")
     }
     fun attacke3() {}
+
+    override fun beutelAktion(beutel: Beutel) {
+        println("Wählen Sie:\n* -> heiltrank\n# -> vitamine")
+        val auswahl = readln()
+        when (auswahl) {
+            "*" -> beutel.heiltrank(this)
+            "#" -> beutel.vitamine(this)
+            else -> println("Eingabe Falsch!")
+        }
+    }
 
 }

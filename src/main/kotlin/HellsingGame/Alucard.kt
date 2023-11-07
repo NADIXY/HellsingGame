@@ -6,7 +6,6 @@ import kotlin.random.nextInt
 class Alucard(name: String, hp: Int, waffe: String, element: String, schaden: IntRange) :
     Helden(name, hp, waffe, element, schaden) {
 
-
     override fun heilZauber() {
         hp += 50
         println(
@@ -15,7 +14,6 @@ class Alucard(name: String, hp: Int, waffe: String, element: String, schaden: In
         )
     }
 
-
     override fun aktionen(gegner: Gegner) {
         println("Held ${this.name} führt eine Attacke aus.")
         println(
@@ -23,6 +21,7 @@ class Alucard(name: String, hp: Int, waffe: String, element: String, schaden: In
             "A" -> xxxxxx
             "B" -> waffeAttacke
             "C" -> attacke3
+            "D" -> Heil Zauber
             
         """.trimIndent()
         )
@@ -31,6 +30,7 @@ class Alucard(name: String, hp: Int, waffe: String, element: String, schaden: In
             "A" -> xxxxxx(gegner)
             "B" -> waffeAttacke(gegner)
             "C" -> attacke3()
+            "D" -> heilZauber()
             else -> println("Eingabe Falsch!")
         }
     }
@@ -48,6 +48,16 @@ class Alucard(name: String, hp: Int, waffe: String, element: String, schaden: In
                     " HP.\njetzt hat gegner ${gegner.name} nur noch ${gegner.hp}HP übrig!")
     }
     fun attacke3() {}
+
+    override fun beutelAktion(beutel: Beutel) {
+    println("Wählen Sie:\n* -> heiltrank\n# -> vitamine")
+    val auswahl = readln()
+    when (auswahl) {
+        "*" -> beutel.heiltrank(this)
+        "#" -> beutel.vitamine(this)
+        else -> println("Eingabe Falsch!")
+    }
+}
 
 }
 

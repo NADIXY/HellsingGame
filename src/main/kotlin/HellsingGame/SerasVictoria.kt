@@ -21,6 +21,7 @@ class SerasVictoria(name: String, hp: Int, waffe: String, element: String, schad
             "A" -> xxxx
             "B" -> waffeAttacke
             "C" -> attacke3
+            "D" -> Heil Zauber
             
         """.trimIndent()
         )
@@ -29,6 +30,7 @@ class SerasVictoria(name: String, hp: Int, waffe: String, element: String, schad
             "A" -> xxxx(gegner)
             "B" -> waffeAttacke(gegner)
             "C" -> attacke3()
+            "D" -> attacke3()
             else -> println("Eingabe Falsch!")
         }
     }
@@ -45,6 +47,16 @@ override fun waffeAttacke(gegner: Gegner) {
 
 }
 fun attacke3() {}
+
+    override fun beutelAktion(beutel: Beutel) {
+        println("Wählen Sie:\n* -> heiltrank\n# -> vitamine")
+        val auswahl = readln()
+        when (auswahl) {
+            "*" -> beutel.heiltrank(this)
+            "#" -> beutel.vitamine(this)
+            else -> println("Eingabe Falsch!")
+        }
+    }
 
 
 }

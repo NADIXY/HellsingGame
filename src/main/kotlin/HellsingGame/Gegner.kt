@@ -22,7 +22,7 @@ open class Gegner(val name: String, var hp: Int, val waffe: String, val element:
         val aktion = (1..6).random()
         when (aktion) {
             1 -> attacke1()
-            2 -> flaechenschaden(helden1)
+            2 -> flaechenschaden(HELDEN1)
             3 -> fluch(helden)
             4 -> waffeAngriff(helden)
             else -> println("Eingabe Falsch!")
