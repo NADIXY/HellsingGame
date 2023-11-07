@@ -10,7 +10,7 @@ class Alucard(name: String, hp: Int, waffe: String, element: String, schaden: In
     override fun heilZauber() {
         hp += 50
         println(
-            "${this.name} hat sich um 50 HP mit dem Schutz Zauber geschützt." +
+            "${this.name}  hat '50HP +' dazu bekommen sich mit dem Schutz Zauber geschützt." +
                     "\n${this.name}'s HP beträgt jetzt ${this.hp}HP."
         )
     }

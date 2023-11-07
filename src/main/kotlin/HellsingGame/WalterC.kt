@@ -7,7 +7,7 @@ class WalterC(name: String, hp: Int, waffe: String, element: String, schaden: In
 
     override fun heilZauber() {
         hp += 20
-        println("${this.name} hat sich um 20 HP mit dem Schutz Zauber geschützt." +
+        println("${this.name} hat '20HP +' dazu bekommen, sich mit dem Schutz Zauber geschützt." +
                 "\n${this.name}'s HP beträgt jetzt ${this.hp}HP.")
     }
 
@@ -36,8 +36,7 @@ class WalterC(name: String, hp: Int, waffe: String, element: String, schaden: In
     override fun waffeAttacke(gegner: Gegner) {
         val schaden = Random.nextInt(5..15)
         gegner.hp -= schaden
-        println(
-            "$name greift ${gegner.name} mit der $waffe an," +
+        println("$name greift ${gegner.name} mit der $waffe an," +
                     " fügt Schaden zu und reduziert die" +
                     " HP der Gegner. ${gegner.name} hat jetzt nur noch ${gegner.hp}HP übrig!")
     }

@@ -8,7 +8,7 @@ class SerasVictoria(name: String, hp: Int, waffe: String, element: String, schad
 
     override fun heilZauber() {
         hp += 40
-        println("${this.name} hat sich um 40 HP mit dem Schutz Zauber geschützt." +
+        println("${this.name} hat '40HP +' dazu bekommen, sich mit dem Schutz Zauber geschützt." +
                     "\n${this.name}'s HP beträgt jetzt ${this.hp}HP."
         )
     }

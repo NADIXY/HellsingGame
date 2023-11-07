@@ -8,12 +8,10 @@ class Integra(name: String, hp: Int, waffe: String, element: String, schaden: In
 
     override fun heilZauber() {
         hp += 30
-        println(
-            "${this.name} hat sich um 30 HP mit dem Schutz Zauber geschützt." +
+        println("${this.name} hat '30HP +' dazu bekommen, sich mit dem Schutz Zauber geschützt." +
                     "\n${this.name}'s HP beträgt jetzt ${this.hp}HP."
         )
     }
-
 
     override fun aktionen(gegner: Gegner) {
         println("Held ${this.name} führt eine Attacke aus.")
