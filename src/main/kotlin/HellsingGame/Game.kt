@@ -1,12 +1,12 @@
 package HellsingGame
 
-class Game() {
+class Game {
 
     fun kampfStart(gegner: List<Gegner>) {
 
-        var round = 1
+        var level = 1
         while (true) {
-            println("Round $round:")
+            println("Round $level:")
             println("Team_Helden 'HELLSING' startet:")
             for (held in helden) {
                 if (held.hp > 0) {
@@ -24,7 +24,7 @@ class Game() {
                 println("Der Endgegner ist K.O geschlagen worden!")
                 break
             }
-            round++
+            level++
         }
     }
     fun gameOver(gegner: List<Gegner>) {

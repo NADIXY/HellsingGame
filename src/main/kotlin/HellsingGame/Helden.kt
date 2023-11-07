@@ -60,7 +60,7 @@ open class Helden(val name: String, var hp: Int, val waffe: String, val element:
     open fun x(gegner: Gegner) {}
 
         open fun waffeAttacke(gegner: Gegner) {
-            println("Held greift Gegner mit 1 Waffe.")
+            println("Ein Gegner wird mit 1 Waffe attackiert!")
         }
 
         fun attacke3(gegner: Gegner) {}

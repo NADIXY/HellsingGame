@@ -7,46 +7,37 @@ class BossHelfer(name: String, hp: Int, waffe: String, element: String, schaden:
     Gegner(name,hp,waffe,element,schaden){
 
     override fun aktionAusfuehren(helden: Helden) {
-        println(
-            """
-            Jetzt ist ${this.name} am Start mit ${this.hp}HP!
-            
-            Aktion bitte auswählen:
-            1 -> Angriff
-            2 -> Flächenschaden
-            3 -> Fluch
+        println("Jetzt ist ${this.name} am Start mit ${this.hp}HP!")
 
-        """.trimIndent()
-        )
-        val auswahl = readln().toIntOrNull()
-        when (auswahl) {
-            1 -> angriff(helden)
-            2 -> flaechenschaden(helden)
-            3 -> fluch(helden)
+        /* val
+        when (){
+            1 -> attacke1(helden)
+            2 -> waffeAngriff(helden)
+            3 -> yyy(helden)
+            4 -> yyyy(helden)
             else -> println("Ungültige Auswahl.")
         }
+    } */
     }
 
-    override fun attacke() {
-    }
+   fun attacke1(held: Helden) {}
 
-    override fun angriff(helden: Helden) {
-        println("Unterboss ${this.name} führt eine Attacke aus...")
+    override fun waffeAngriff(helden: Helden) {
+        println("Unterboss: ${this.name} attackiert mit 1 Waffe!")
         println()
-        val schaden = Random.nextInt(20..50)
+        val schaden = Random.nextInt(15..35)
         helden.hp -= schaden
-        println("$name greift ${helden.name} mit $waffe an," +
-                " fügt Schaden zu und reduziert ${helden.name}'s HP um ${helden.hp}HP.")
+        println("$name greift ${helden.name} mit der $waffe an," +
+                    " fügt Schaden zu und reduziert die" +
+                    " HP.\njetzt hat Held ${helden.name} nur noch ${helden.hp}HP übrig!")
     }
 
-    override fun flaechenschaden(helden: Helden ) {
-        println("Gegner $name fügt dem Helden_Team 'HELLSING' Flächenschaden zu.")
+    fun yyy(helden: Helden ) {
+        println("Gegner $name schadet Helden_Team 'HELLSING'.")
     }
 
-    override fun fluch(held: Helden) {
-        println("Gegner $name verflucht den Helden ${held.name}.")
+    fun yyyy(helden: Helden) {
+        println("Gegner $name schadet Held ${helden.name}.")
     }
-
-
 
 }
