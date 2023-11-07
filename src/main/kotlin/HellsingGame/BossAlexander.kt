@@ -57,7 +57,7 @@ class BossAlexanderA(name: String, hp: Int, waffe: String, elementartyp: String,
                     println("Verflucht...\n" +
                             "Held ${held.name} hat jetzt nur noch ${held.hp}HP übrig!")
                 } else {
-                    println("Flucht zu schwach!\n" +
+                    println("'Fluch' zu schwach!\n" +
                             "Held ${held.name} hat jetzt nur noch ${held.hp}HP übrig!")
                     break
                 }

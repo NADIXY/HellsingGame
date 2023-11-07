@@ -2,6 +2,8 @@ package HellsingGame
 
 class Game {
 
+
+
     fun kampfStart(gegner: List<Gegner>) {
 
         var level = 1
@@ -29,11 +31,11 @@ class Game {
     }
     fun gameOver(gegner: List<Gegner>) {
         println("Das Team 'HELLSING' ist K.O geschlagen worden!\n" +
-                " Der Endgegner ${GEGNER1.get(0)} und seinem Helfer ${GEGNER1.get(1)} haben gewonnen!")
+                " Der Endgegner $gegner und seinem Helfer haben gewonnen!")
     }
     private fun teamTot(): Boolean {
         for (held in HELDEN1) {
-            if (held.hp >= 60) {
+            if (held.hp >= 0) {
                 return false
             }
         }
