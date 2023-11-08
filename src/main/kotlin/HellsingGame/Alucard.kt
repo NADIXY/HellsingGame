@@ -7,6 +7,7 @@ class Alucard(name: String, hp: Int, waffe: String, element: String, schaden: In
     Helden(name, hp, waffe, element, schaden) {
 
     override fun heilZauber() {
+        println("Aktion: heilZauber ")
         hp += 50
         println(
             "${this.name} hat '50HP +' dazu bekommen sich mit dem Schutz Zauber geschützt." +
@@ -27,19 +28,34 @@ class Alucard(name: String, hp: Int, waffe: String, element: String, schaden: In
         )
         val eingabe = readln().uppercase()
         when (eingabe) {
-            "A" -> xxxxxx(gegner)
+            "A" -> darkHundTransit(gegner)
             "B" -> waffeAttacke(gegner)
-            "C" -> attacke3()
+            "C" -> wolfAttacke(gegner)
             "D" -> heilZauber()
             else -> println("Eingabe Falsch!")
         }
     }
 
 
-    fun xxxxxx(gegner: Gegner) {
+    fun darkHundTransit(gegner: Gegner) {
+        println("Aktion: Dark Hund Transit ")
+        if (gegner.hp >= 40 && (this.hp < 10)) {
+            gegner.hp -= 35 * 2
+            println(
+                "Held ${gegner.name} hat jetzt nur noch ${gegner.hp}HP übrig," +
+                        "\n" + " wegen des ${this.name}'s Attackes darkHundTransit!"
+            )
+        }
+        for (gegnerAll in GEGNER1) {
+            gegnerAll.hp -= 45
+            println(
+                "Held ${gegner.name} hat jetzt nur noch ${gegner.hp}HP übrig!"
+            )
+        }
     }
 
     override fun waffeAttacke(gegner: Gegner) {
+        println("Aktion: waffeAttacke ")
         val schaden = Random.nextInt(45..65)
         gegner.hp -= schaden
         println(
@@ -50,7 +66,15 @@ class Alucard(name: String, hp: Int, waffe: String, element: String, schaden: In
 
     }
 
-    fun attacke3() {}
+    fun wolfAttacke(gegner: Gegner) {
+        println("Aktion: wolfAttacke ")
+        val schaden = Random.nextInt(schaden.first, schaden.last + 1)
+        gegner.hp -= schaden
+        println(
+            "${this.name} verwandelt sich in 1 Wolfe, greift ${gegner.name} an: " +
+                    "\n${gegner.name} hat jetzt nur noch ${gegner.hp}HP übrig!"
+        )
+    }
 
     override fun beutelAktion(beutel: Beutel) {
         println("Wählen Sie:\n* -> heiltrank\n# -> vitamine")
@@ -61,6 +85,7 @@ class Alucard(name: String, hp: Int, waffe: String, element: String, schaden: In
             else -> println("Eingabe Falsch!")
         }
     }
+
 
 }
 
