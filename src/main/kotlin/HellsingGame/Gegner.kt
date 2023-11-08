@@ -29,6 +29,6 @@ open class Gegner(val name: String, var hp: Int, val waffe: String, val element:
         }
     }
 
-    }
+}
 
 

@@ -1,6 +1,6 @@
 package HellsingGame
 
-class Game {
+class StartGame {
 
 
 

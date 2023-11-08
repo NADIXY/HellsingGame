@@ -15,10 +15,9 @@ class BossHelfer(name: String, hp: Int, waffe: String, element: String, schaden:
             2 -> waffeAngriff(helden)
             3 -> yyy(helden)
             4 -> yyyy(helden)
-            else -> println("Ungültige Auswahl.")
+            else -> println("Eingabe Falsch!")
         }
     }
-
 
    fun attacke1(held: Helden) {}
 

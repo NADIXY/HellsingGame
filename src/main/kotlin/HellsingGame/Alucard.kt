@@ -42,22 +42,25 @@ class Alucard(name: String, hp: Int, waffe: String, element: String, schaden: In
     override fun waffeAttacke(gegner: Gegner) {
         val schaden = Random.nextInt(45..65)
         gegner.hp -= schaden
-        println("$name greift ${gegner.name} mit der $waffe an," +
-                " fügt Schaden zu und reduziert die" +
-                " HP der Gegner.\n ${gegner.name} hat jetzt nur noch ${gegner.hp}HP übrig!")
+        println(
+            "$name greift ${gegner.name} mit der $waffe an," +
+                    " fügt Schaden zu und reduziert die" +
+                    " HP der Gegner.\n ${gegner.name} hat jetzt nur noch ${gegner.hp}HP übrig!"
+        )
 
     }
+
     fun attacke3() {}
 
     override fun beutelAktion(beutel: Beutel) {
-    println("Wählen Sie:\n* -> heiltrank\n# -> vitamine")
-    val auswahl = readln()
-    when (auswahl) {
-        "*" -> beutel.heiltrank(this)
-        "#" -> beutel.vitamine(this)
-        else -> println("Eingabe Falsch!")
+        println("Wählen Sie:\n* -> heiltrank\n# -> vitamine")
+        val auswahl = readln()
+        when (auswahl) {
+            "*" -> beutel.heiltrank(this)
+            "#" -> beutel.vitamine(this)
+            else -> println("Eingabe Falsch!")
+        }
     }
-}
 
 }
 

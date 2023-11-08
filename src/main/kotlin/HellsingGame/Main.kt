@@ -10,11 +10,11 @@ val HELDEN1: List<Helden> =
 
 val GEGNER1: List<Gegner> =
     listOf(
-        BossAlexanderA("Boss Alexander Anderson",400,"Heiliges Schwert", "Licht",80..200),
-        BossHelfer("Boss Helfer",350,"Pistole","Licht",70..150)
+        BossAlexanderA("Boss Alexander Anderson",250,"Heiliges Schwert", "Licht",80..200),
     )
 
 fun main() {
+    Thread.sleep(1000)
 
     println(
         "\n\n\t\t\t\t\t\t\t\t\t\t\t\t🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥" +
@@ -24,13 +24,15 @@ fun main() {
                 "🔥🔥🔥🔥🔥\n\t\t\t\t\t\t\t\t\t\t\t\t🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥" +
                 "🔥🔥🔥🔥🔥🔥\n\n"
     )
-
+    Thread.sleep(2000)
+    println("\t\t\t\t\t\t\t\t\t\t\t\t\t🔥☠️🔥 ENJOY YOUR TIME WITH US... 🔥☠️🔥")
     Thread.sleep(1000)
 
-    println("\t\t\t\t\t\t\t\t\t\t\t\t\t🔥☠️🔥 ENJOY YOUR TIME WITH US... 🔥☠️🔥")
 
-    val game = Game()
-    game.kampfStart(GEGNER1)
+    val startGame = StartGame()
+    startGame.kampfStart(GEGNER1)
+
+
 
 }
 

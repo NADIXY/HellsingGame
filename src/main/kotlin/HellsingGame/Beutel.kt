@@ -2,25 +2,39 @@ package HellsingGame
 
 class Beutel {
 
-    private var inventar : MutableMap<String,Int> = mutableMapOf(
-        "portionenHeiltrank" to 50,
-        "vitamine" to 1.1.toInt()
-        )
+    private var inventar : MutableList<String> = mutableListOf()
+
+    var heiltrankGenutzt = false
 
     fun heiltrank(held: Helden) {
-        println("Heilt um die Hälfte seiner Lebenspunkte")
+        inventar.add("Heiltrank")
+        println("Lebenspunkte wird um die hälfte erhöht.")
         val portionenHeiltrank = held.hp / 2
-        if (portionenHeiltrank == 50) {
-        inventar[portionenHeiltrank.toString()]= 50
-        held.hp += portionenHeiltrank
-            inventar.remove("portionenHeiltrank")
-            println("${held.name} wurde um $portionenHeiltrank mit der Heiltrank geheilt.")
-
-            //println("Heiltrank nicht mehr verfügbar!")
+        if (inventar.contains("Heiltrank") && !heiltrankGenutzt) {
+            println("${held.name} wurde mit der Heiltrank geheilt,\n" +
+                    " HP erhöht sich um ${held.hp}HP.")
+            inventar.remove("Heiltrank")
+            heiltrankGenutzt = true
+        }else if (!inventar.contains("Heiltrank")) {
+            println("Im Inventar ist keinen Heiltrank mehr verfügbar!")
+        }else{
+            println("In diesem 'Level' habt Ihr mit dem Heiltrank bereits geheilt!")
         }
     }
 
     fun vitamine(held: Helden) {
+        val hpPlus = 0.1
+        if (inventar.contains("Vitamine") && !heiltrankGenutzt) {
+            held.hp = (1 + hpPlus).toInt()
+            println(" Held ${held.name} hat dauerhaft die HP ${held.hp * 100}% erhöht!\n " +
+                    "HP beträgt jetzt ${held.hp}")
+            inventar.remove("Vitamine")
+            heiltrankGenutzt = true
+        }else if (!inventar.contains("Vitamine")) {
+            println("Im Inventar ist keine Vitamine mehr verfügbar!")
+        }else{
+            println("In diesem 'Level' habt Ihr bereits geheilt!")
+        }
 
     }
 
