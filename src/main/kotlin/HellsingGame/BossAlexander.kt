@@ -3,8 +3,7 @@ package HellsingGame
 import kotlin.random.Random
 import kotlin.random.nextInt
 
-
-class BossAlexanderA(name: String, hp: Int, waffe: String, element: String, schaden: IntRange) :
+class BossAlexander(name: String, hp: Int, waffe: String, element: String, schaden: IntRange) :
     Gegner(name, hp, waffe, element, schaden) {
 
     override fun aktionAusfuehren(helden: Helden) {
@@ -21,13 +20,13 @@ class BossAlexanderA(name: String, hp: Int, waffe: String, element: String, scha
         }
     }
 
-
     fun blindMacher(helden: Helden) {
+        println("Aktion: blindMacher ")
         if (helden.hp > 80) {
             helden.hp -= schaden.last
             println(
                 "blindMacher Nebel, schädeigen die Augen der Held ${helden.name}" +
-                        " und machen um ${helden.hp}HP schwächer."
+                        "\n und machen um ${helden.hp}HP schwächer."
             )
         } else {
             println("Nächstes mal wirst du richtig getroffen!")
@@ -36,18 +35,20 @@ class BossAlexanderA(name: String, hp: Int, waffe: String, element: String, scha
     }
 
     override fun waffeAngriff(helden: Helden) {
+        println("Aktion: waffeAngriff ")
         println("Boss ${this.name} attackiert mit 1 Waffe!")
         println()
         val schaden = Random.nextInt(20..45)
         helden.hp -= schaden
         println(
             "$name greift ${helden.name} mit der $waffe an," +
-                    " fügt Schaden zu und reduziert die" +
-                    " HP.\njetzt hat Held ${helden.name} nur noch ${helden.hp}HP übrig!"
+                    "\n fügt Schaden zu und reduziert die HP." +
+                    "\njetzt hat Held ${helden.name} nur noch ${helden.hp}HP übrig!"
         )
     }
 
     override fun flaechenschaden(helden: List<Helden>) {
+        println("Aktion: flaechenschaden ")
         println("Gegner $name fügt dem Helden_Team 'HELLSING' Flächenschaden mit Feuer zu.")
         for (held in helden) {
             val schaden = Random.nextInt(10..30)
@@ -60,6 +61,7 @@ class BossAlexanderA(name: String, hp: Int, waffe: String, element: String, scha
     }
 
     override fun fluch(held: Helden) {
+        println("Aktion: fluch ")
         println("Gegner $name verflucht den Helden ${held.name}.")
 
         val hpx = hp * 0.2
@@ -67,13 +69,11 @@ class BossAlexanderA(name: String, hp: Int, waffe: String, element: String, scha
             if (held.hp > hpx) {
                 held.hp -= (held.hp * 0.1).toInt()
                 println(
-                    "Verflucht...\n" +
-                            "Held ${held.name} hat jetzt nur noch ${held.hp}HP übrig!"
+                    "Verflucht...\n" + "Held ${held.name} hat jetzt nur noch ${held.hp}HP übrig!"
                 )
             } else {
                 println(
-                    "'Fluch' zu schwach!\n" +
-                            "Held ${held.name} hat jetzt nur noch ${held.hp}HP übrig!"
+                    "'Fluch' zu schwach!\n" + "Held ${held.name} hat jetzt nur noch ${held.hp}HP übrig!"
                 )
                 break
             }
@@ -81,11 +81,11 @@ class BossAlexanderA(name: String, hp: Int, waffe: String, element: String, scha
     }
 
     fun helferBeschworen(): BossHelfer {
+        println("Aktion: helferBeschworen ")
 
         val listeGegner1 = GEGNER1.toMutableList()
         val unterBoss = BossHelfer(
-            "Boss Helfer", 130,
-            "Pistole", "Licht", 70..150
+            "Boss Helfer", 130, "Pistole", "Licht", 70..150
         )
         val aktuellListe = listeGegner1.add(unterBoss)
         println("Beschworen des Unterbosses! Unterboss ist aufgerufen worden???")
@@ -95,11 +95,13 @@ class BossAlexanderA(name: String, hp: Int, waffe: String, element: String, scha
 
 
     fun heilBlatterWurf(helden: List<Helden>) {
+        println("Aktion: heilBlatterWurf ")
         for (held in helden) {
-            val schaden = 2 /((15 * 2) + (15 * 2))
+            val schaden = 2 / ((15 * 2) + (15 * 2))
             held.hp -= schaden
-            println("${this.name} hat Held ${held.name} mit Heil Blatter getroffen und die HP reduziert," +
-                    " \nHeld ${held.name} hat jetzt nur noch ${held.hp}HP übrig!"
+            println(
+                "${this.name} hat Held ${held.name} mit Heil Blatter getroffen und die HP reduziert," +
+                        "\nHeld ${held.name} hat jetzt nur noch ${held.hp}HP übrig!"
             )
         }
     }
