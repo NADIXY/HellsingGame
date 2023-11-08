@@ -15,15 +15,22 @@ class Game {
                     println("Held Namen's ${held.name} ist am Start mit ${held.hp}HP")
                     held.aktionAusfuehren()
                     println()
+                }else{
+                    println("Held ${held.name} ist K.O. und kann nicht mehr im Kampf spielen!")
                 }
             }
-             gegner.random().aktionAusfuehren(HELDEN1.random())
+            val zufaelligeGegner = gegner.random()
+            if (zufaelligeGegner.hp > 0) {
+                zufaelligeGegner.aktionAusfuehren(HELDEN1.random())
+            }else{
+                println("1 Gegner ist K.O und kann nicht mehr im Kampf spielen!")
+            }
             println("Jetzt ist HELLSING am Start!")
             if (teamTot()) {
                 gameOver(gegner)
                 break
-            } else if (gegner.random().hp < 10) {
-                println("Der Endgegner ist K.O geschlagen worden!")
+            } else if (gegner.any { it.hp <= 0 }) {
+                println("Der Endgegner oder ein Helfer ist K.O geschlagen worden!")
                 break
             }
             level++
@@ -31,11 +38,11 @@ class Game {
     }
     fun gameOver(gegner: List<Gegner>) {
         println("Das Team 'HELLSING' ist K.O geschlagen worden!\n" +
-                " Der Endgegner $gegner und seinem Helfer haben gewonnen!")
+                " Der Endgegner $gegner und seine Helfer haben gewonnen!")
     }
     private fun teamTot(): Boolean {
         for (held in HELDEN1) {
-            if (held.hp >= 0) {
+            if (held.hp > 0) {
                 return false
             }
         }
