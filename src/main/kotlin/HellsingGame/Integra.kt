@@ -7,9 +7,10 @@ class Integra(name: String, hp: Int, waffe: String, element: String, schaden: In
     Helden(name, hp, waffe, element, schaden) {
 
     override fun heilZauber() {
+        println("Aktion: heilZauber ")
         hp += 30
-        println("${this.name} hat '30HP +' dazu bekommen, sich mit dem Schutz Zauber geschützt." +
-                    "\n${this.name}'s HP beträgt jetzt ${this.hp}HP."
+        println(
+            "${this.name} hat '30HP +' dazu bekommen, sich mit dem Schutz Zauber geschützt." + "\n${this.name}'s HP beträgt jetzt ${this.hp}HP."
         )
     }
 
@@ -17,9 +18,9 @@ class Integra(name: String, hp: Int, waffe: String, element: String, schaden: In
         println("Held ${this.name} führt eine Attacke aus.")
         println(
             """
-            "A" -> xxxxx
+            "A" -> queqsilber
             "B" -> waffeAttacke
-            "C" -> attacke3
+            "C" -> silverBombe
             "D" -> Heil Zauber
             
         """.trimIndent()
@@ -27,25 +28,48 @@ class Integra(name: String, hp: Int, waffe: String, element: String, schaden: In
 
         val eingabe = readln().uppercase()
         when (eingabe) {
-            "A" -> xxxxx(gegner)
+            "A" -> queqsilber(gegner)
             "B" -> waffeAttacke(gegner)
-            "C" -> attacke3()
+            "C" -> silverBombe(gegner)
             "D" -> heilZauber()
             else -> println("Eingabe Falsch!")
         }
     }
 
-    fun xxxxx(gegner: Gegner) {}
+    fun queqsilber(gegner: Gegner) {
+        println("Aktion: Queqsilber Attacke ")
+        for (gegnerx in GEGNER1) {
+            gegnerx.hp -= (2 * 24)
+            println(
+                "Queqsilber Attacke wirkt 2 Tage lang..." + "\nHeld ${gegner.name} hat jetzt nur noch ${gegner.hp}HP übrig!"
+            )
+        }
+    }
 
-override fun waffeAttacke(gegner: Gegner) {
-    val schaden = Random.nextInt(40..50)
-    gegner.hp -= schaden
-    println("$name greift ${gegner.name} mit der $waffe an," +
-            " fügt Schaden zu und reduziert die" +
-            " HP der Gegner.\n ${gegner.name} hat jetzt nur noch ${gegner.hp}HP übrig!")
-}
+    override fun waffeAttacke(gegner: Gegner) {
+        println("Aktion: waffeAttacke")
+        val schaden = Random.nextInt(40..50)
+        gegner.hp -= schaden
+        println(
+            "$name greift ${gegner.name} mit der $waffe an," + " fügt Schaden zu und reduziert die" + " HP der Gegner.\n ${gegner.name} hat jetzt nur noch ${gegner.hp}HP übrig!"
+        )
+    }
 
-fun attacke3() {}
+    fun silverBombe(gegner: Gegner) {
+        println("Aktion: silverBombe Attacke")
+        if (gegner.hp >= 30 && (this.hp < 80)) {
+            gegner.hp -= 35 * 2
+            println(
+                "Held ${gegner.name} hat jetzt nur noch ${gegner.hp}HP übrig," + " wegen der silverBombe attacke des ${this.name}!"
+            )
+        }
+        for (gegnerAll in GEGNER1) {
+            gegnerAll.hp -= 45
+            println(
+                "Held ${gegner.name} hat jetzt nur noch ${gegner.hp}HP übrig!"
+            )
+        }
+    }
 
     override fun beutelAktion(beutel: Beutel) {
         println("Wählen Sie:\n* -> heiltrank\n# -> vitamine")
