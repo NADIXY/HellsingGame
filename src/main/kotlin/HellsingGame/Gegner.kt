@@ -1,6 +1,8 @@
 package HellsingGame
 
-open class Gegner(val name: String, var hp: Int, val waffe: String, val element: String, val schaden: IntRange) {
+open class Gegner(
+    val name: String, var hp: Int, val waffe: String, val element: String, val schaden: IntRange
+) {
 
     open fun attacke1() {
         println("Gegner $name führt eine Attacke aus.")
@@ -15,7 +17,7 @@ open class Gegner(val name: String, var hp: Int, val waffe: String, val element:
     }
 
     open fun waffeAngriff(helden: Helden) {
-        println("Ein Held wird mit 1 Waffe attackiert!")
+        println("Held wird bald mit 1 Waffe attackiert!")
     }
 
     open fun aktionAusfuehren(helden: Helden) {
