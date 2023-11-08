@@ -19,9 +19,9 @@ class Alucard(name: String, hp: Int, waffe: String, element: String, schaden: In
         println("Held ${this.name} führt eine Attacke aus.")
         println(
             """
-            "A" -> xxxxxx
+            "A" -> darkHundTransit
             "B" -> waffeAttacke
-            "C" -> attacke3
+            "C" -> wolfAttacke
             "D" -> Heil Zauber
             
         """.trimIndent()
