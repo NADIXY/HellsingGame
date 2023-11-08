@@ -17,16 +17,16 @@ class WalterC(name: String, hp: Int, waffe: String, element: String, schaden: In
         println("Held ${this.name} führt eine Attacke aus.")
         println(
             """
-            "A" -> xxx
+            "A" -> doppelteBlitz
             "B" -> waffeAttacke
-            "C" -> attacke3
+            "C" -> reizZuTode
             "D" -> Heil Zauber
             
         """.trimIndent()
         )
         val eingabe = readln().uppercase()
         when (eingabe) {
-            "doppelteBlitz" -> doppelteBlitz(gegner)
+            "A" -> doppelteBlitz(gegner)
             "B" -> waffeAttacke(gegner)
             "C" -> reizZuTode(gegner)
             "D" -> heilZauber()
