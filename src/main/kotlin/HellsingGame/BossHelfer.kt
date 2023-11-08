@@ -13,50 +13,49 @@ class BossHelfer(name: String, hp: Int, waffe: String, element: String, schaden:
         when (aktion) {
             1 -> hpErhöhen()
             2 -> waffeAngriff(helden)
-            3 -> yyy(helden)
+            3 -> fluchSymbol(helden)
             4 -> elektrischeVolken(HELDEN1)
             else -> println("Eingabe Falsch!")
         }
     }
 
     fun hpErhöhen() {
+        println("Aktion: hpErhöhen ")
         if (hp < this.hp * 0.3) {
             hp += 70
-
             println(
-                "${this.name} hat '70HP +' dazu bekommen, sich mit HP aufgepumpt." +
-                        "\n${this.name}'s HP beträgt jetzt ${this.hp}HP."
+                "${this.name} hat '70HP +' dazu bekommen, sich mit HP aufgepumpt." + "\n${this.name}'s HP beträgt jetzt ${this.hp}HP."
             )
         }
     }
 
     override fun waffeAngriff(helden: Helden) {
+        println("Aktion: waffeAngriff ")
         println("Unterboss: ${this.name} attackiert mit 1 Waffe!")
         println()
         val schaden = Random.nextInt(15..35)
         helden.hp -= schaden
         println(
-            "${this.name} greift ${helden.name} mit der ${this.waffe} an," +
-                    " fügt Schaden zu und reduziert die" +
-                    " HP.\njetzt hat Held ${helden.name} nur noch ${helden.hp}HP übrig!"
+            "${this.name} greift ${helden.name} mit der ${this.waffe} an," + " fügt Schaden zu und reduziert die" + " HP.\njetzt hat Held" + " ${helden.name} nur noch ${helden.hp}HP übrig!"
         )
     }
 
-    fun yyy(helden: Helden) {
-        if (HELDEN1.size == 4)
-            helden.hp -= 0.2.toInt() * 0.2.toInt() * 0.2.toInt() * 0.2.toInt()
-        println("Gegner ${this.name} attackiert Held ${helden.name}," +
-                " der hat jetzt nur noch ${helden.hp}HP übrig .")
+    fun fluchSymbol(helden: Helden) {
+        println("Aktion: symbolFluch ")
+        if (HELDEN1.size == 4 && helden.hp < 35) helden.hp -= 0.2.toInt() * 0.2.toInt() * 0.2.toInt() * 0.2.toInt()
+        println(
+            "Gegner ${this.name} zeigt 1 Fluch Symbol an Held ${helden.name} und er wird geschädigt,\n" + " der hat jetzt nur noch ${helden.hp}HP übrig ."
+        )
     }
 
     fun elektrischeVolken(helden: List<Helden>) {
+        println("Aktion: elektrischeVolken ")
         for (held in helden) {
-            val schaden = Random.nextInt(10..30) *
-                    Random.nextInt(10..30) * Random.nextInt(10..30)
+            val schaden = Random.nextInt(10..30) * Random.nextInt(10..30) * Random.nextInt(10..30)
             held.hp -= schaden
-            println("Elektrischen Wolken schädigen die Helden!")
-            " ${this.name} hat  Held ${held.name} und Tem Hellsing sind elektriziert.," +
-                    " \nHeld ${held.name} hat jetzt nur noch ${held.hp}HP übrig!"
+            println(
+                "Elektrischen Wolken schädigen die Helden!" + " ${this.name} hat  Held ${held.name}" + "\n und Tem Hellsing sind elektriziert." + "\nHeld ${held.name} hat jetzt nur noch ${held.hp}HP übrig!"
+            )
         }
     }
 }
