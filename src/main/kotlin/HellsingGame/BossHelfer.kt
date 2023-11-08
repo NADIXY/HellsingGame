@@ -20,13 +20,11 @@ class BossHelfer(name: String, hp: Int, waffe: String, element: String, schaden:
 
     fun hpErhöhen() {
         println("Aktion: hpErhöhen ")
-        if (hp < this.hp * 0.3) {
             hp += 70
             println(
                 "${this.name} hat '70HP +' dazu bekommen, sich mit HP aufgepumpt." + "\n${this.name}'s HP beträgt jetzt ${this.hp}HP."
             )
         }
-    }
 
     override fun waffeAngriff(helden: Helden) {
         println("Aktion: waffeAngriff ")
@@ -40,10 +38,10 @@ class BossHelfer(name: String, hp: Int, waffe: String, element: String, schaden:
     }
 
     fun fluchSymbol(helden: Helden) {
-        println("Aktion: symbolFluch ")
+        println("Aktion: fluchSymbol ")
         if (HELDEN1.size == 4 && helden.hp < 35) helden.hp -= 0.2.toInt() * 0.2.toInt() * 0.2.toInt() * 0.2.toInt()
         println(
-            "Gegner ${this.name} zeigt 1 Fluch Symbol an Held ${helden.name} und er wird geschädigt,\n" + " der hat jetzt nur noch ${helden.hp}HP übrig ."
+            "Gegner ${this.name} zeigt 1 Fluch Symbol an Held ${helden.name} und wird geschädigt,\n" + " jetzt sind nur noch ${helden.hp}HP übrig ."
         )
     }
 

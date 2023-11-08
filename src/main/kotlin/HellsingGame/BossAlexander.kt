@@ -87,8 +87,10 @@ class BossAlexander(name: String, hp: Int, waffe: String, element: String, schad
             "Boss Helfer", 130, "Pistole", "Licht", 70..150
         )
         val aktuellListe = listeGegner1.add(unterBoss)
+
         println("Beschworen des Unterbosses! Unterboss ist aufgerufen worden???")
         println(aktuellListe)
+        unterBoss.elektrischeVolken(HELDEN1)
         return unterBoss
     }
 
