@@ -15,9 +15,23 @@ class BossAlexanderA(name: String, hp: Int, waffe: String, element: String, scha
             2 -> flaechenschaden(HELDEN1)
             3 -> fluch(helden)
             4 -> helferBeschworen()
-            5 -> attacke5()
-            6 -> attacke6()
+            5 -> blindMacher(helden)
+            6 -> heilBlatterWurf(HELDEN1)
             else -> println("Eingabe Falsch!")
+        }
+    }
+
+
+    fun blindMacher(helden: Helden) {
+        if (helden.hp > 80) {
+            helden.hp -= schaden.last
+            println(
+                "blindMacher Nebel, schädeigen die Augen der Held ${helden.name}" +
+                        " und machen um ${helden.hp}HP schwächer."
+            )
+        } else {
+            println("Nächstes mal wirst du richtig getroffen!")
+
         }
     }
 
@@ -67,20 +81,30 @@ class BossAlexanderA(name: String, hp: Int, waffe: String, element: String, scha
     }
 
     fun helferBeschworen(): BossHelfer {
-        val unterBoss = BossHelfer("Boss Helfer", 130, "Pistole", "Licht", 70..150)
-        if (this.hp > 100) {
-            val listeGegner1 = GEGNER1.toMutableList()
-            listeGegner1.add(unterBoss)
-            println("Beschworen des Unterbosses! Unterboss ist aufgerufen worden")
-        }
+
+        val listeGegner1 = GEGNER1.toMutableList()
+        val unterBoss = BossHelfer(
+            "Boss Helfer", 130,
+            "Pistole", "Licht", 70..150
+        )
+        val aktuellListe = listeGegner1.add(unterBoss)
+        println("Beschworen des Unterbosses! Unterboss ist aufgerufen worden???")
+        println(aktuellListe)
         return unterBoss
     }
 
-    fun attacke5() {}
-    fun attacke6() {}
 
-
+    fun heilBlatterWurf(helden: List<Helden>) {
+        for (held in helden) {
+            val schaden = 2 /((15 * 2) + (15 * 2))
+            held.hp -= schaden
+            println("${this.name} hat Held ${held.name} mit Heil Blatter getroffen und die HP reduziert," +
+                    " \nHeld ${held.name} hat jetzt nur noch ${held.hp}HP übrig!"
+            )
+        }
+    }
 }
+
 
 
 

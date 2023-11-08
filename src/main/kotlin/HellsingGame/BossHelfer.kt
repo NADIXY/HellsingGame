@@ -3,40 +3,60 @@ package HellsingGame
 import kotlin.random.Random
 import kotlin.random.nextInt
 
-class BossHelfer(name: String, hp: Int, waffe: String, element: String, schaden: IntRange):
-    Gegner(name,hp,waffe,element,schaden){
+class BossHelfer(name: String, hp: Int, waffe: String, element: String, schaden: IntRange) :
+    Gegner(name, hp, waffe, element, schaden) {
 
     override fun aktionAusfuehren(helden: Helden) {
         println("Jetzt ist ${this.name} am Start mit ${this.hp}HP!")
 
-         val aktion = (1..4).random()
-        when (aktion){
-            1 -> attacke1(helden)
+        val aktion = (1..4).random()
+        when (aktion) {
+            1 -> hpErhöhen()
             2 -> waffeAngriff(helden)
             3 -> yyy(helden)
-            4 -> yyyy(helden)
+            4 -> elektrischeVolken(HELDEN1)
             else -> println("Eingabe Falsch!")
         }
     }
 
-   fun attacke1(held: Helden) {}
+    fun hpErhöhen() {
+        if (hp < this.hp * 0.3) {
+            hp += 70
+
+            println(
+                "${this.name} hat '70HP +' dazu bekommen, sich mit HP aufgepumpt." +
+                        "\n${this.name}'s HP beträgt jetzt ${this.hp}HP."
+            )
+        }
+    }
 
     override fun waffeAngriff(helden: Helden) {
         println("Unterboss: ${this.name} attackiert mit 1 Waffe!")
         println()
         val schaden = Random.nextInt(15..35)
         helden.hp -= schaden
-        println("${this.name} greift ${helden.name} mit der ${this.waffe} an," +
+        println(
+            "${this.name} greift ${helden.name} mit der ${this.waffe} an," +
                     " fügt Schaden zu und reduziert die" +
-                    " HP.\njetzt hat Held ${helden.name} nur noch ${helden.hp}HP übrig!")
+                    " HP.\njetzt hat Held ${helden.name} nur noch ${helden.hp}HP übrig!"
+        )
     }
 
-    fun yyy(helden: Helden ) {
-        println("Gegner $name schadet Helden_Team 'HELLSING'.")
+    fun yyy(helden: Helden) {
+        if (HELDEN1.size == 4)
+            helden.hp -= 0.2.toInt() * 0.2.toInt() * 0.2.toInt() * 0.2.toInt()
+        println("Gegner ${this.name} attackiert Held ${helden.name}," +
+                " der hat jetzt nur noch ${helden.hp}HP übrig .")
     }
 
-    fun yyyy(helden: Helden) {
-        println("Gegner schadet Held ${helden.name}.")
+    fun elektrischeVolken(helden: List<Helden>) {
+        for (held in helden) {
+            val schaden = Random.nextInt(10..30) *
+                    Random.nextInt(10..30) * Random.nextInt(10..30)
+            held.hp -= schaden
+            println("Elektrischen Wolken schädigen die Helden!")
+            " ${this.name} hat  Held ${held.name} und Tem Hellsing sind elektriziert.," +
+                    " \nHeld ${held.name} hat jetzt nur noch ${held.hp}HP übrig!"
+        }
     }
-
 }

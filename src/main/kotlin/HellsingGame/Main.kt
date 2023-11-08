@@ -11,6 +11,8 @@ val HELDEN1: List<Helden> =
 val GEGNER1: List<Gegner> =
     listOf(
         BossAlexanderA("Boss Alexander Anderson",250,"Heiliges Schwert", "Licht",80..200),
+        BossHelfer("Boss Helfer", 130, "Pistole", "Licht", 70..150)
+
     )
 
 fun main() {
@@ -31,6 +33,7 @@ fun main() {
 
     val startGame = StartGame()
     startGame.kampfStart(GEGNER1)
+
 
 
 

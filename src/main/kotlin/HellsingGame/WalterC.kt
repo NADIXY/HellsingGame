@@ -26,7 +26,7 @@ class WalterC(name: String, hp: Int, waffe: String, element: String, schaden: In
         )
         val eingabe = readln().uppercase()
         when (eingabe) {
-            "A" -> xxx(gegner)
+            "A" -> doppelteBliz(gegner)
             "B" -> waffeAttacke(gegner)
             "C" -> attacke3()
             "D" -> heilZauber()
@@ -34,13 +34,28 @@ class WalterC(name: String, hp: Int, waffe: String, element: String, schaden: In
         }
     }
 
-    fun xxx(gegner: Gegner) {}
+    fun doppelteBliz(gegner: Gegner) {
+        if (gegner.hp >= 40) {
+            gegner.hp -= 35
+            println(
+                "Held ${gegner.name} hat jetzt nur noch ${gegner.hp}HP übrig!"
+            )
+        }
+        for (gegnerAll in GEGNER1) {
+            gegnerAll.hp -= 45
+            println(
+                "Held ${gegner.name} hat jetzt nur noch ${gegner.hp}HP übrig!"
+            )
+        }
+    }
 
     override fun waffeAttacke(gegner: Gegner) {
         val schaden = Random.nextInt(5..15)
         gegner.hp -= schaden
         println(
-            "$name greift ${gegner.name} mit der $waffe an," + " fügt Schaden zu und reduziert die" + " HP der Gegner.\n ${gegner.name} hat jetzt nur noch ${gegner.hp}HP übrig!"
+            "$name greift ${gegner.name} mit der $waffe an," +
+                    " fügt Schaden zu und reduziert die" + " HP der Gegner." +
+                    "\n ${gegner.name} hat jetzt nur noch ${gegner.hp}HP übrig!"
         )
     }
 

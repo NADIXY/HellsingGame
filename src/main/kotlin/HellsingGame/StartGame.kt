@@ -3,7 +3,6 @@ package HellsingGame
 class StartGame {
 
 
-
     fun kampfStart(gegner: List<Gegner>) {
 
         var level = 1

@@ -2,9 +2,9 @@ package HellsingGame
 
 class Beutel {
 
-    private var inventar : MutableList<String> = mutableListOf()
-
     var heiltrankGenutzt = false
+
+    var inventar : MutableList<String> = mutableListOf()
 
     fun heiltrank(held: Helden) {
         inventar.add("Heiltrank")
@@ -39,7 +39,10 @@ class Beutel {
     }
 
 
-
 }
+
+
+
+
 
 
