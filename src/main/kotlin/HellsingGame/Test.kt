@@ -10,7 +10,7 @@ fun main() {
 
     val xx = "src/main/kotlin/HellsingGame/xx.wav"
     val yy = "src/main/kotlin/HellsingGame/yy.wav"
-    val zz: String =  "src/main/kotlin/HellsingGame/zz.wav"
+    val zz: String = "src/main/kotlin/HellsingGame/zz.wav"
 
     println("sound 1 wird abgespielt:")
     playSound(xx)
@@ -32,8 +32,8 @@ fun playSound(audioPath: String) {
     clip.open(audioInput)
     clip.start()
 
-    val soundThread: Thread = Thread{
-        while (clip.isRunning){
+    val soundThread: Thread = Thread {
+        while (clip.isRunning) {
             Thread.sleep(5000)
             println("Thread ${Thread.currentThread().name} läuft noch...")
         }

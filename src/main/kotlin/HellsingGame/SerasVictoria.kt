@@ -1,5 +1,6 @@
 package HellsingGame
 
+import HellsingGame.Gegner.Gegner
 import kotlin.random.Random
 import kotlin.random.nextInt
 
@@ -41,7 +42,8 @@ class SerasVictoria(name: String, hp: Int, waffe: String, element: String, schad
             val schaden = 2 * 70
             gegner.hp -= schaden
             println(
-                "${this.name} hat Held ${gegner.name} 1 Teil des Herzens Explodiert und die HP reduziert," + "\nHeld ${gegner.name} hat jetzt nur noch ${gegner.hp}HP übrig!"
+                "${this.name} hat Held ${gegner.name} 1 Teil des Herzens Explodiert und die HP reduziert, " +
+                        "\nHeld ${gegner.name} hat jetzt nur noch ${gegner.hp}HP übrig!"
             )
         }
 
@@ -52,7 +54,9 @@ class SerasVictoria(name: String, hp: Int, waffe: String, element: String, schad
         val schaden = Random.nextInt(25..35)
         gegner.hp -= schaden
         println(
-            "$name greift ${gegner.name} mit der $waffe an,fügt Schaden zu und reduziert die HP der Gegner." + "\n ${gegner.name} hat jetzt nur noch ${gegner.hp}HP übrig!"
+            "$name greift ${gegner.name} mit der $waffe an, " +
+                    "fügt Schaden zu und reduziert die HP der Gegner.\n " +
+                    "${gegner.name} hat jetzt nur noch ${gegner.hp}HP übrig!"
         )
     }
 
@@ -61,18 +65,28 @@ class SerasVictoria(name: String, hp: Int, waffe: String, element: String, schad
         val schaden = Random.nextInt(schaden.first, schaden.last * 7)
         gegner.hp -= schaden
         println(
-            "${this.name} verflucht mit der Fluch 'weekDaysFluch', einmal ${gegner.name} verflucht," + "\n für 1 Woche, jeden Tag kriegt 1 Kollaps " + "\n${gegner.name} hat jetzt nur noch ${gegner.hp}HP übrig!"
+            "${this.name} verflucht mit der Fluch 'weekDaysFluch', " +
+                    "einmal ${gegner.name} verflucht, \n für 1 Woche, jeden Tag kriegt 1 Kollaps " +
+                    "\n${gegner.name} hat jetzt nur noch ${gegner.hp}HP übrig!"
         )
     }
+    private var heitrankAusgenutzt = false
+    private var vitamineAusgenutzt = false
 
     override fun beutelAktion(beutel: Beutel) {
+        if (heitrankAusgenutzt && vitamineAusgenutzt ) {
+            throw  Exception("Die Funktion wurde bereits aufgerufen!")
+        }
         println("Wählen Sie:\n* -> heiltrank\n# -> vitamine")
         val auswahl = readln()
         when (auswahl) {
-            "*" -> beutel.heiltrank(this)
-            "#" -> beutel.vitamine(this)
+            "*" -> if(!heitrankAusgenutzt) beutel.heiltrank(this)
+            "#" -> if(!vitamineAusgenutzt) beutel.vitamine(this)
             else -> println("Eingabe Falsch!")
         }
+        heitrankAusgenutzt = true
+        vitamineAusgenutzt = true
+        return beutelAktion(Beutel())
     }
 
 

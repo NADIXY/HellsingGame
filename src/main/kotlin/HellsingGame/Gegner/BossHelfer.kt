@@ -1,4 +1,6 @@
-package HellsingGame
+package HellsingGame.Gegner
+import HellsingGame.HELDEN1
+import HellsingGame.Helden
 import kotlin.random.Random
 import kotlin.random.nextInt
 
@@ -46,7 +48,7 @@ class BossHelfer(name: String, hp: Int, waffe: String, element: String, schaden:
     }
 
     fun elektrischeVolken(helden: List<Helden>) {
-        println("Aktion: elektrischeVolken ")
+        println("Aktion des Unterbosses elektrischeVolken ")
         for (held in helden) {
             val schaden = Random.nextInt(10..30) * Random.nextInt(10..30) * Random.nextInt(10..30)
             held.hp -= schaden

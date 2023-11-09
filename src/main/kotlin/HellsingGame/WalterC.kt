@@ -1,4 +1,5 @@
 package HellsingGame
+import HellsingGame.Gegner.Gegner
 import kotlin.random.Random
 import kotlin.random.nextInt
 
@@ -67,15 +68,23 @@ class WalterC(name: String, hp: Int, waffe: String, element: String, schaden: In
             "${this.name} zerstückelte Gegner ${gegner.name} mit scharfen Verfluchte Seiden: " + "\n${gegner.name} hat jetzt nur noch ${gegner.hp}HP übrig!"
         )
     }
+    private var heitrankAusgenutzt = false
+    private var vitamineAusgenutzt = false
 
     override fun beutelAktion(beutel: Beutel) {
+        if (heitrankAusgenutzt && vitamineAusgenutzt ) {
+            throw  Exception("Die Funktion wurde bereits aufgerufen!")
+        }
         println("Wählen Sie:\n* -> heiltrank\n# -> vitamine")
         val auswahl = readln()
         when (auswahl) {
-            "*" -> beutel.heiltrank(this)
-            "#" -> beutel.vitamine(this)
+            "*" -> if(!heitrankAusgenutzt) beutel.heiltrank(this)
+            "#" -> if(!vitamineAusgenutzt) beutel.vitamine(this)
             else -> println("Eingabe Falsch!")
         }
+        heitrankAusgenutzt = true
+        vitamineAusgenutzt = true
+
     }
 
 }

@@ -1,6 +1,5 @@
 package HellsingGame
-import kotlin.random.Random
-import kotlin.random.nextInt
+import HellsingGame.Gegner.Gegner
 
 open class Helden(
     val name: String, var hp: Int, val waffe: String, val element: String, var schaden: IntRange
@@ -35,8 +34,17 @@ open class Helden(
         println("Ein Gegner wird mit 1 Waffe attackiert!")
     }
 
+    private var heitrankAusgenutzt = false
+    private var vitamineAusgenutzt = false
+
     open fun beutelAktion(beutel: Beutel) {
+        if (heitrankAusgenutzt && vitamineAusgenutzt ) {
+            throw  Exception("Die Funktion wurde bereits aufgerufen!")
+        }
         println("Held wird sich heilen...")
+        heitrankAusgenutzt = true
+        vitamineAusgenutzt = true
+        return beutelAktion(Beutel())
     }
 
 

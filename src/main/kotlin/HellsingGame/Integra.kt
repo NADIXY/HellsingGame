@@ -1,5 +1,6 @@
 package HellsingGame
 
+import HellsingGame.Gegner.Gegner
 import kotlin.random.Random
 import kotlin.random.nextInt
 
@@ -70,15 +71,22 @@ class Integra(name: String, hp: Int, waffe: String, element: String, schaden: In
             )
         }
     }
+    private var heitrankAusgenutzt = false
+    private var vitamineAusgenutzt = false
 
     override fun beutelAktion(beutel: Beutel) {
+        if (heitrankAusgenutzt && vitamineAusgenutzt ) {
+            throw  Exception("Die Funktion wurde bereits aufgerufen!")
+        }
         println("Wählen Sie:\n* -> heiltrank\n# -> vitamine")
         val auswahl = readln()
         when (auswahl) {
-            "*" -> beutel.heiltrank(this)
-            "#" -> beutel.vitamine(this)
+            "*" -> if(!heitrankAusgenutzt) beutel.heiltrank(this)
+            "#" -> if(!vitamineAusgenutzt) beutel.vitamine(this)
             else -> println("Eingabe Falsch!")
         }
+        heitrankAusgenutzt = true
+        vitamineAusgenutzt = true
     }
 
 }

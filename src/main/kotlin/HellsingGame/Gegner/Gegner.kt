@@ -1,4 +1,7 @@
-package HellsingGame
+package HellsingGame.Gegner
+
+import HellsingGame.HELDEN1
+import HellsingGame.Helden
 
 open class Gegner(
     val name: String, var hp: Int, val waffe: String, val element: String, val schaden: IntRange

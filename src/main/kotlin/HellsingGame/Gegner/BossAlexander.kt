@@ -1,9 +1,14 @@
-package HellsingGame
+package HellsingGame.Gegner
+import HellsingGame.GEGNER1
+import HellsingGame.HELDEN1
+import HellsingGame.Helden
 import kotlin.random.Random
 import kotlin.random.nextInt
 
 class BossAlexander(name: String, hp: Int, waffe: String, element: String, schaden: IntRange) :
     Gegner(name, hp, waffe, element, schaden) {
+
+    private var unterBossBeschoren = false
 
     override fun aktionAusfuehren(helden: Helden) {
         println("Jetzt ist ${this.name} am Start mit ${this.hp}HP!")
@@ -12,7 +17,7 @@ class BossAlexander(name: String, hp: Int, waffe: String, element: String, schad
             1 -> waffeAngriff(helden)
             2 -> flaechenschaden(HELDEN1)
             3 -> fluch(helden)
-            4 -> helferBeschworen()
+            4 -> if (!unterBossBeschoren) helferBeschworen()
             5 -> blindMacher(helden)
             6 -> heilBlatterWurf(HELDEN1)
             else -> println("Eingabe Falsch!")
@@ -24,7 +29,7 @@ class BossAlexander(name: String, hp: Int, waffe: String, element: String, schad
         if (helden.hp > 80) {
             helden.hp -= schaden.last
             println(
-                "blindMacher Nebel, schädeigen die Augen der Held ${helden.name}" +
+                "blindMacher Nebel, schädigen ${helden.name} Augen's" +
                         "\n und machen um ${helden.hp}HP schwächer."
             )
         } else {
@@ -78,10 +83,13 @@ class BossAlexander(name: String, hp: Int, waffe: String, element: String, schad
             }
         }
     }
+    private var helferBeschworen1 = false
 
-    fun helferBeschworen(): BossHelfer {
+     fun helferBeschworen(): BossHelfer {
+        if (helferBeschworen1) {
+            throw  Exception("Die Funktion helferBeschworen wurde bereits aufgerufen!")
+        }
         println("Aktion: helferBeschworen ")
-
         val listeGegner1 = GEGNER1.toMutableList()
         val unterBoss = BossHelfer(
             "Boss Helfer", 130, "Pistole", "Licht", 70..150
@@ -91,9 +99,10 @@ class BossAlexander(name: String, hp: Int, waffe: String, element: String, schad
         println("Beschworen des Unterbosses! Unterboss ist aufgerufen worden???")
         println(aktuellListe)
         unterBoss.elektrischeVolken(HELDEN1)
+        unterBossBeschoren = true
+        helferBeschworen1 = true
         return unterBoss
     }
-
 
     fun heilBlatterWurf(helden: List<Helden>) {
         println("Aktion: heilBlatterWurf ")

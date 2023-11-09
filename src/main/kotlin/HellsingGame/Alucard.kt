@@ -1,5 +1,6 @@
 package HellsingGame
 
+import HellsingGame.Gegner.Gegner
 import kotlin.random.Random
 import kotlin.random.nextInt
 
@@ -41,10 +42,7 @@ class Alucard(name: String, hp: Int, waffe: String, element: String, schaden: In
         println("Aktion: Dark Hund Transit ")
         if (gegner.hp >= 40 && (this.hp < 10)) {
             gegner.hp -= 35 * 2
-            println(
-                "Held ${gegner.name} hat jetzt nur noch ${gegner.hp}HP übrig," +
-                        "\n" + " wegen des ${this.name}'s Attackes darkHundTransit!"
-            )
+            println("Gebissen!!!")
         }
         for (gegnerAll in GEGNER1) {
             gegnerAll.hp -= 45
@@ -75,15 +73,23 @@ class Alucard(name: String, hp: Int, waffe: String, element: String, schaden: In
                     "\n${gegner.name} hat jetzt nur noch ${gegner.hp}HP übrig!"
         )
     }
+    private var heitrankAusgenutzt = false
+    private var vitamineAusgenutzt = false
 
     override fun beutelAktion(beutel: Beutel) {
+        if (heitrankAusgenutzt && vitamineAusgenutzt ) {
+            throw  Exception("Die Funktion wurde bereits aufgerufen!")
+        }
         println("Wählen Sie:\n* -> heiltrank\n# -> vitamine")
         val auswahl = readln()
         when (auswahl) {
-            "*" -> beutel.heiltrank(this)
-            "#" -> beutel.vitamine(this)
+            "*" -> if(!heitrankAusgenutzt) beutel.heiltrank(this)
+            "#" -> if(!vitamineAusgenutzt) beutel.vitamine(this)
             else -> println("Eingabe Falsch!")
         }
+        heitrankAusgenutzt = true
+        vitamineAusgenutzt = true
+        return beutelAktion(Beutel())
     }
 
 
