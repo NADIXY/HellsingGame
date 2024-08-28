@@ -1,3 +1,4 @@
+<!---
 #            HELLSING GAME 
 
 
@@ -62,11 +63,5 @@ Alexander Anderson Helfer:
 Auch einer aus der Organization "Millennium:
 Millennium ist eine Organisation von Nazis, die übernatürliche Kräfte nutzen, um ihre Ziele zu erreichen. Ihre Mitglieder sind mit verschiedenen Waffen
 ausgestattet, darunter Schusswaffen und Experimente mit Vampirismus.
-
-
-
-
-
-
-
+--->
 
